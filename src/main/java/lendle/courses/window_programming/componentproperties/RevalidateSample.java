@@ -5,7 +5,81 @@
  */
 package lendle.courses.window_programming.componentproperties;
 
+import java.awt.AWTEvent;
+import java.awt.AWTException;
+import java.awt.AWTKeyStroke;
+import java.awt.BufferCapabilities;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.ComponentOrientation;
+import java.awt.Container;
+import java.awt.Cursor;
+import java.awt.Dialog;
+import java.awt.Dimension;
+import java.awt.Event;
+import java.awt.FocusTraversalPolicy;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.GraphicsConfiguration;
+import java.awt.HeadlessException;
+import java.awt.Image;
+import java.awt.ImageCapabilities;
+import java.awt.Insets;
+import java.awt.LayoutManager;
+import java.awt.MenuBar;
+import java.awt.MenuComponent;
+import java.awt.Point;
+import java.awt.PopupMenu;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.Toolkit;
+import java.awt.Window;
+import java.awt.dnd.DropTarget;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.awt.event.ContainerEvent;
+import java.awt.event.ContainerListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.HierarchyBoundsListener;
+import java.awt.event.HierarchyEvent;
+import java.awt.event.HierarchyListener;
+import java.awt.event.InputMethodEvent;
+import java.awt.event.InputMethodListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
+import java.awt.event.WindowListener;
+import java.awt.event.WindowStateListener;
+import java.awt.im.InputContext;
+import java.awt.im.InputMethodRequests;
+import java.awt.image.BufferStrategy;
+import java.awt.image.ColorModel;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
+import java.awt.image.VolatileImage;
+import java.awt.peer.ComponentPeer;
+import java.beans.PropertyChangeListener;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.util.EventListener;
+import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import java.util.Set;
+import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
+import javax.swing.JLayeredPane;
+import javax.swing.JMenuBar;
+import javax.swing.JRootPane;
+import javax.swing.TransferHandler;
 
 /**
  *
@@ -68,8 +142,1695 @@ public class RevalidateSample extends javax.swing.JFrame {
         JButton button=new JButton("1");
         jPanel1.add(button);
         //試試看，應該加入 repaint? invalidate? revalidate?
+        jPanel1.revalidate();
+        
         /////////////////////////////////////////////////
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    @Override
+    public AccessibleContext getAccessibleContext() {
+        return super.getAccessibleContext(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected String paramString() {
+        return super.paramString(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void repaint(long time, int x, int y, int width, int height) {
+        super.repaint(time, x, y, width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Graphics getGraphics() {
+        return super.getGraphics(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setGlassPane(Component glassPane) {
+        super.setGlassPane(glassPane); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component getGlassPane() {
+        return super.getGlassPane(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLayeredPane(JLayeredPane layeredPane) {
+        super.setLayeredPane(layeredPane); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public JLayeredPane getLayeredPane() {
+        return super.getLayeredPane(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setContentPane(Container contentPane) {
+        super.setContentPane(contentPane); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Container getContentPane() {
+        return super.getContentPane(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setIconImage(Image image) {
+        super.setIconImage(image); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void setRootPane(JRootPane root) {
+        super.setRootPane(root); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public JRootPane getRootPane() {
+        return super.getRootPane(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLayout(LayoutManager manager) {
+        super.setLayout(manager); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void remove(Component comp) {
+        super.remove(comp); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void addImpl(Component comp, Object constraints, int index) {
+        super.addImpl(comp, constraints, index); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void setRootPaneCheckingEnabled(boolean enabled) {
+        super.setRootPaneCheckingEnabled(enabled); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected boolean isRootPaneCheckingEnabled() {
+        return super.isRootPaneCheckingEnabled(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public JMenuBar getJMenuBar() {
+        return super.getJMenuBar(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setJMenuBar(JMenuBar menubar) {
+        super.setJMenuBar(menubar); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Graphics g) {
+        super.update(g); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public TransferHandler getTransferHandler() {
+        return super.getTransferHandler(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setTransferHandler(TransferHandler newHandler) {
+        super.setTransferHandler(newHandler); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getDefaultCloseOperation() {
+        return super.getDefaultCloseOperation(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setDefaultCloseOperation(int operation) {
+        super.setDefaultCloseOperation(operation); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processWindowEvent(WindowEvent e) {
+        super.processWindowEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected JRootPane createRootPane() {
+        return super.createRootPane(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void frameInit() {
+        super.frameInit(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getCursorType() {
+        return super.getCursorType(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCursor(int cursorType) {
+        super.setCursor(cursorType); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeNotify() {
+        super.removeNotify(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void remove(MenuComponent m) {
+        super.remove(m); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setBackground(Color bgColor) {
+        super.setBackground(bgColor); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setShape(Shape shape) {
+        super.setShape(shape); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setOpacity(float opacity) {
+        super.setOpacity(opacity); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isUndecorated() {
+        return super.isUndecorated(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setUndecorated(boolean undecorated) {
+        super.setUndecorated(undecorated); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Rectangle getMaximizedBounds() {
+        return super.getMaximizedBounds(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setMaximizedBounds(Rectangle bounds) {
+        super.setMaximizedBounds(bounds); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getExtendedState() {
+        return super.getExtendedState(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized int getState() {
+        return super.getState(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setExtendedState(int state) {
+        super.setExtendedState(state); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void setState(int state) {
+        super.setState(state); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setResizable(boolean resizable) {
+        super.setResizable(resizable); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isResizable() {
+        return super.isResizable(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setMenuBar(MenuBar mb) {
+        super.setMenuBar(mb); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public MenuBar getMenuBar() {
+        return super.getMenuBar(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Image getIconImage() {
+        return super.getIconImage(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setTitle(String title) {
+        super.setTitle(title); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getTitle() {
+        return super.getTitle(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addNotify() {
+        super.addNotify(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isOpaque() {
+        return super.isOpaque(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Color getBackground() {
+        return super.getBackground(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Shape getShape() {
+        return super.getShape(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public float getOpacity() {
+        return super.getOpacity(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setBounds(Rectangle r) {
+        super.setBounds(r); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setBounds(int x, int y, int width, int height) {
+        super.setBounds(x, y, width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isLocationByPlatform() {
+        return super.isLocationByPlatform(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLocationByPlatform(boolean locationByPlatform) {
+        super.setLocationByPlatform(locationByPlatform); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public BufferStrategy getBufferStrategy() {
+        return super.getBufferStrategy(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void createBufferStrategy(int numBuffers, BufferCapabilities caps) throws AWTException {
+        super.createBufferStrategy(numBuffers, caps); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void createBufferStrategy(int numBuffers) {
+        super.createBufferStrategy(numBuffers); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLocationRelativeTo(Component c) {
+        super.setLocationRelativeTo(c); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Type getType() {
+        return super.getType(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setType(Type type) {
+        super.setType(type); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void applyResourceBundle(String rbName) {
+        super.applyResourceBundle(rbName); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void applyResourceBundle(ResourceBundle rb) {
+        super.applyResourceBundle(rb); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isShowing() {
+        return super.isShowing(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean postEvent(Event e) {
+        return super.postEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isValidateRoot() {
+        return super.isValidateRoot(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        super.addPropertyChangeListener(propertyName, listener); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        super.addPropertyChangeListener(listener); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isAutoRequestFocus() {
+        return super.isAutoRequestFocus(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setAutoRequestFocus(boolean autoRequestFocus) {
+        super.setAutoRequestFocus(autoRequestFocus); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setFocusableWindowState(boolean focusableWindowState) {
+        super.setFocusableWindowState(focusableWindowState); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean getFocusableWindowState() {
+        return super.getFocusableWindowState(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Set<AWTKeyStroke> getFocusTraversalKeys(int id) {
+        return super.getFocusTraversalKeys(id); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFocused() {
+        return super.isFocused(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isActive() {
+        return super.isActive(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component getMostRecentFocusOwner() {
+        return super.getMostRecentFocusOwner(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component getFocusOwner() {
+        return super.getFocusOwner(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isAlwaysOnTopSupported() {
+        return super.isAlwaysOnTopSupported(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processWindowStateEvent(WindowEvent e) {
+        super.processWindowStateEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processWindowFocusEvent(WindowEvent e) {
+        super.processWindowFocusEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processEvent(AWTEvent e) {
+        super.processEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public <T extends EventListener> T[] getListeners(Class<T> listenerType) {
+        return super.getListeners(listenerType); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized WindowStateListener[] getWindowStateListeners() {
+        return super.getWindowStateListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized WindowFocusListener[] getWindowFocusListeners() {
+        return super.getWindowFocusListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized WindowListener[] getWindowListeners() {
+        return super.getWindowListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeWindowFocusListener(WindowFocusListener l) {
+        super.removeWindowFocusListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeWindowStateListener(WindowStateListener l) {
+        super.removeWindowStateListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeWindowListener(WindowListener l) {
+        super.removeWindowListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addWindowFocusListener(WindowFocusListener l) {
+        super.addWindowFocusListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addWindowStateListener(WindowStateListener l) {
+        super.addWindowStateListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addWindowListener(WindowListener l) {
+        super.addWindowListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dialog.ModalExclusionType getModalExclusionType() {
+        return super.getModalExclusionType(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setModalExclusionType(Dialog.ModalExclusionType exclusionType) {
+        super.setModalExclusionType(exclusionType); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Window[] getOwnedWindows() {
+        return super.getOwnedWindows(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Window getOwner() {
+        return super.getOwner(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCursor(Cursor cursor) {
+        super.setCursor(cursor); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public InputContext getInputContext() {
+        return super.getInputContext(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Locale getLocale() {
+        return super.getLocale(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Toolkit getToolkit() {
+        return super.getToolkit(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void toBack() {
+        super.toBack(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void toFront() {
+        super.toFront(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void hide() {
+        super.hide(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void show() {
+        super.show(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setVisible(boolean b) {
+        super.setVisible(b); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void reshape(int x, int y, int width, int height) {
+        super.reshape(x, y, width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLocation(Point p) {
+        super.setLocation(p); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLocation(int x, int y) {
+        super.setLocation(x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setSize(int width, int height) {
+        super.setSize(width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setSize(Dimension d) {
+        super.setSize(d); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setMinimumSize(Dimension minimumSize) {
+        super.setMinimumSize(minimumSize); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void pack() {
+        super.pack(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void setIconImages(List<? extends Image> icons) {
+        super.setIconImages(icons); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Image> getIconImages() {
+        return super.getIconImages(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void applyComponentOrientation(ComponentOrientation o) {
+        super.applyComponentOrientation(o); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void transferFocusDownCycle() {
+        super.transferFocusDownCycle(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFocusTraversalPolicySet() {
+        return super.isFocusTraversalPolicySet(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public FocusTraversalPolicy getFocusTraversalPolicy() {
+        return super.getFocusTraversalPolicy(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setFocusTraversalPolicy(FocusTraversalPolicy policy) {
+        super.setFocusTraversalPolicy(policy); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFocusCycleRoot(Container container) {
+        return super.isFocusCycleRoot(container); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean areFocusTraversalKeysSet(int id) {
+        return super.areFocusTraversalKeysSet(id); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setFocusTraversalKeys(int id, Set<? extends AWTKeyStroke> keystrokes) {
+        super.setFocusTraversalKeys(id, keystrokes); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void list(PrintWriter out, int indent) {
+        super.list(out, indent); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void list(PrintStream out, int indent) {
+        super.list(out, indent); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isAncestorOf(Component c) {
+        return super.isAncestorOf(c); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component findComponentAt(Point p) {
+        return super.findComponentAt(p); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component findComponentAt(int x, int y) {
+        return super.findComponentAt(x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Point getMousePosition(boolean allowChildren) throws HeadlessException {
+        return super.getMousePosition(allowChildren); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component getComponentAt(Point p) {
+        return super.getComponentAt(p); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component locate(int x, int y) {
+        return super.locate(x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component getComponentAt(int x, int y) {
+        return super.getComponentAt(x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void deliverEvent(Event e) {
+        super.deliverEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processContainerEvent(ContainerEvent e) {
+        super.processContainerEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized ContainerListener[] getContainerListeners() {
+        return super.getContainerListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeContainerListener(ContainerListener l) {
+        super.removeContainerListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addContainerListener(ContainerListener l) {
+        super.addContainerListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void printComponents(Graphics g) {
+        super.printComponents(g); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void paintComponents(Graphics g) {
+        super.paintComponents(g); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void print(Graphics g) {
+        super.print(g); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public float getAlignmentY() {
+        return super.getAlignmentY(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public float getAlignmentX() {
+        return super.getAlignmentX(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dimension getMaximumSize() {
+        return super.getMaximumSize(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dimension minimumSize() {
+        return super.minimumSize(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dimension getMinimumSize() {
+        return super.getMinimumSize(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dimension preferredSize() {
+        return super.preferredSize(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return super.getPreferredSize(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setFont(Font f) {
+        super.setFont(f); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void validateTree() {
+        super.validateTree(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void validate() {
+        super.validate(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void invalidate() {
+        super.invalidate(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void layout() {
+        super.layout(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void doLayout() {
+        super.doLayout(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public LayoutManager getLayout() {
+        return super.getLayout(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeAll() {
+        super.removeAll(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void remove(int index) {
+        super.remove(index); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void add(Component comp, Object constraints, int index) {
+        super.add(comp, constraints, index); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void add(Component comp, Object constraints) {
+        super.add(comp, constraints); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getComponentZOrder(Component comp) {
+        return super.getComponentZOrder(comp); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setComponentZOrder(Component comp, int index) {
+        super.setComponentZOrder(comp, index); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component add(Component comp, int index) {
+        return super.add(comp, index); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component add(String name, Component comp) {
+        return super.add(name, comp); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component add(Component comp) {
+        return super.add(comp); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Insets insets() {
+        return super.insets(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Insets getInsets() {
+        return super.getInsets(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component[] getComponents() {
+        return super.getComponents(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Component getComponent(int n) {
+        return super.getComponent(n); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int countComponents() {
+        return super.countComponents(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getComponentCount() {
+        return super.getComponentCount(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ComponentOrientation getComponentOrientation() {
+        return super.getComponentOrientation(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setComponentOrientation(ComponentOrientation o) {
+        super.setComponentOrientation(o); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void firePropertyChange(String propertyName, double oldValue, double newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void firePropertyChange(String propertyName, float oldValue, float newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void firePropertyChange(String propertyName, long oldValue, long newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void firePropertyChange(String propertyName, short oldValue, short newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void firePropertyChange(String propertyName, char oldValue, char newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void firePropertyChange(String propertyName, byte oldValue, byte newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void firePropertyChange(String propertyName, int oldValue, int newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void firePropertyChange(String propertyName, boolean oldValue, boolean newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void firePropertyChange(String propertyName, Object oldValue, Object newValue) {
+        super.firePropertyChange(propertyName, oldValue, newValue); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public PropertyChangeListener[] getPropertyChangeListeners(String propertyName) {
+        return super.getPropertyChangeListeners(propertyName); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removePropertyChangeListener(String propertyName, PropertyChangeListener listener) {
+        super.removePropertyChangeListener(propertyName, listener); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public PropertyChangeListener[] getPropertyChangeListeners() {
+        return super.getPropertyChangeListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        super.removePropertyChangeListener(listener); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void list(PrintWriter out) {
+        super.list(out); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void list(PrintStream out) {
+        super.list(out); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void list() {
+        super.list(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void add(PopupMenu popup) {
+        super.add(popup); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFocusOwner() {
+        return super.isFocusOwner(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean hasFocus() {
+        return super.hasFocus(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void transferFocusUpCycle() {
+        super.transferFocusUpCycle(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void transferFocusBackward() {
+        super.transferFocusBackward(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void nextFocus() {
+        super.nextFocus(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void transferFocus() {
+        super.transferFocus(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected boolean requestFocusInWindow(boolean temporary) {
+        return super.requestFocusInWindow(temporary); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean requestFocusInWindow() {
+        return super.requestFocusInWindow(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected boolean requestFocus(boolean temporary) {
+        return super.requestFocus(temporary); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void requestFocus() {
+        super.requestFocus(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean getFocusTraversalKeysEnabled() {
+        return super.getFocusTraversalKeysEnabled(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setFocusTraversalKeysEnabled(boolean focusTraversalKeysEnabled) {
+        super.setFocusTraversalKeysEnabled(focusTraversalKeysEnabled); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setFocusable(boolean focusable) {
+        super.setFocusable(focusable); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFocusable() {
+        return super.isFocusable(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFocusTraversable() {
+        return super.isFocusTraversable(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean lostFocus(Event evt, Object what) {
+        return super.lostFocus(evt, what); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean gotFocus(Event evt, Object what) {
+        return super.gotFocus(evt, what); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean action(Event evt, Object what) {
+        return super.action(evt, what); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean keyUp(Event evt, int key) {
+        return super.keyUp(evt, key); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean keyDown(Event evt, int key) {
+        return super.keyDown(evt, key); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean mouseExit(Event evt, int x, int y) {
+        return super.mouseExit(evt, x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean mouseEnter(Event evt, int x, int y) {
+        return super.mouseEnter(evt, x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean mouseMove(Event evt, int x, int y) {
+        return super.mouseMove(evt, x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean mouseUp(Event evt, int x, int y) {
+        return super.mouseUp(evt, x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean mouseDrag(Event evt, int x, int y) {
+        return super.mouseDrag(evt, x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean mouseDown(Event evt, int x, int y) {
+        return super.mouseDown(evt, x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean handleEvent(Event evt) {
+        return super.handleEvent(evt); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processHierarchyBoundsEvent(HierarchyEvent e) {
+        super.processHierarchyBoundsEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processHierarchyEvent(HierarchyEvent e) {
+        super.processHierarchyEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processInputMethodEvent(InputMethodEvent e) {
+        super.processInputMethodEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processMouseWheelEvent(MouseWheelEvent e) {
+        super.processMouseWheelEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processMouseMotionEvent(MouseEvent e) {
+        super.processMouseMotionEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processMouseEvent(MouseEvent e) {
+        super.processMouseEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processKeyEvent(KeyEvent e) {
+        super.processKeyEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processFocusEvent(FocusEvent e) {
+        super.processFocusEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void processComponentEvent(ComponentEvent e) {
+        super.processComponentEvent(e); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected AWTEvent coalesceEvents(AWTEvent existingEvent, AWTEvent newEvent) {
+        return super.coalesceEvents(existingEvent, newEvent); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public InputMethodRequests getInputMethodRequests() {
+        return super.getInputMethodRequests(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized InputMethodListener[] getInputMethodListeners() {
+        return super.getInputMethodListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeInputMethodListener(InputMethodListener l) {
+        super.removeInputMethodListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addInputMethodListener(InputMethodListener l) {
+        super.addInputMethodListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized MouseWheelListener[] getMouseWheelListeners() {
+        return super.getMouseWheelListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeMouseWheelListener(MouseWheelListener l) {
+        super.removeMouseWheelListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addMouseWheelListener(MouseWheelListener l) {
+        super.addMouseWheelListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized MouseMotionListener[] getMouseMotionListeners() {
+        return super.getMouseMotionListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeMouseMotionListener(MouseMotionListener l) {
+        super.removeMouseMotionListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addMouseMotionListener(MouseMotionListener l) {
+        super.addMouseMotionListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized MouseListener[] getMouseListeners() {
+        return super.getMouseListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeMouseListener(MouseListener l) {
+        super.removeMouseListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addMouseListener(MouseListener l) {
+        super.addMouseListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized KeyListener[] getKeyListeners() {
+        return super.getKeyListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeKeyListener(KeyListener l) {
+        super.removeKeyListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addKeyListener(KeyListener l) {
+        super.addKeyListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized HierarchyBoundsListener[] getHierarchyBoundsListeners() {
+        return super.getHierarchyBoundsListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeHierarchyBoundsListener(HierarchyBoundsListener l) {
+        super.removeHierarchyBoundsListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addHierarchyBoundsListener(HierarchyBoundsListener l) {
+        super.addHierarchyBoundsListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized HierarchyListener[] getHierarchyListeners() {
+        return super.getHierarchyListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removeHierarchyListener(HierarchyListener l) {
+        super.removeHierarchyListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addHierarchyListener(HierarchyListener l) {
+        super.addHierarchyListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized FocusListener[] getFocusListeners() {
+        return super.getFocusListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeFocusListener(FocusListener l) {
+        super.removeFocusListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addFocusListener(FocusListener l) {
+        super.addFocusListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized ComponentListener[] getComponentListeners() {
+        return super.getComponentListeners(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void removeComponentListener(ComponentListener l) {
+        super.removeComponentListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void addComponentListener(ComponentListener l) {
+        super.addComponentListener(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean contains(Point p) {
+        return super.contains(p); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean inside(int x, int y) {
+        return super.inside(x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean contains(int x, int y) {
+        return super.contains(x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean getIgnoreRepaint() {
+        return super.getIgnoreRepaint(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setIgnoreRepaint(boolean ignoreRepaint) {
+        super.setIgnoreRepaint(ignoreRepaint); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int checkImage(Image image, int width, int height, ImageObserver observer) {
+        return super.checkImage(image, width, height, observer); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int checkImage(Image image, ImageObserver observer) {
+        return super.checkImage(image, observer); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean prepareImage(Image image, int width, int height, ImageObserver observer) {
+        return super.prepareImage(image, width, height, observer); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean prepareImage(Image image, ImageObserver observer) {
+        return super.prepareImage(image, observer); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public VolatileImage createVolatileImage(int width, int height, ImageCapabilities caps) throws AWTException {
+        return super.createVolatileImage(width, height, caps); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public VolatileImage createVolatileImage(int width, int height) {
+        return super.createVolatileImage(width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Image createImage(int width, int height) {
+        return super.createImage(width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Image createImage(ImageProducer producer) {
+        return super.createImage(producer); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean imageUpdate(Image img, int infoflags, int x, int y, int w, int h) {
+        return super.imageUpdate(img, infoflags, x, y, w, h); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void printAll(Graphics g) {
+        super.printAll(g); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void repaint(int x, int y, int width, int height) {
+        super.repaint(x, y, width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void repaint(long tm) {
+        super.repaint(tm); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void repaint() {
+        super.repaint(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void paintAll(Graphics g) {
+        super.paintAll(g); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isCursorSet() {
+        return super.isCursorSet(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Cursor getCursor() {
+        return super.getCursor(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public FontMetrics getFontMetrics(Font font) {
+        return super.getFontMetrics(font); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void revalidate() {
+        super.revalidate(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public BaselineResizeBehavior getBaselineResizeBehavior() {
+        return super.getBaselineResizeBehavior(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getBaseline(int width, int height) {
+        return super.getBaseline(width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isMaximumSizeSet() {
+        return super.isMaximumSizeSet(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setMaximumSize(Dimension maximumSize) {
+        super.setMaximumSize(maximumSize); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isMinimumSizeSet() {
+        return super.isMinimumSizeSet(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isPreferredSizeSet() {
+        return super.isPreferredSizeSet(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPreferredSize(Dimension preferredSize) {
+        super.setPreferredSize(preferredSize); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isLightweight() {
+        return super.isLightweight(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Point getLocation(Point rv) {
+        return super.getLocation(rv); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dimension getSize(Dimension rv) {
+        return super.getSize(rv); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Rectangle getBounds(Rectangle rv) {
+        return super.getBounds(rv); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getHeight() {
+        return super.getHeight(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getWidth() {
+        return super.getWidth(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getY() {
+        return super.getY(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getX() {
+        return super.getX(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Rectangle bounds() {
+        return super.bounds(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Rectangle getBounds() {
+        return super.getBounds(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void resize(Dimension d) {
+        super.resize(d); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        super.resize(width, height); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dimension size() {
+        return super.size(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Dimension getSize() {
+        return super.getSize(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void move(int x, int y) {
+        super.move(x, y); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Point location() {
+        return super.location(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Point getLocationOnScreen() {
+        return super.getLocationOnScreen(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Point getLocation() {
+        return super.getLocation(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ColorModel getColorModel() {
+        return super.getColorModel(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setLocale(Locale l) {
+        super.setLocale(l); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isFontSet() {
+        return super.isFontSet(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Font getFont() {
+        return super.getFont(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isBackgroundSet() {
+        return super.isBackgroundSet(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isForegroundSet() {
+        return super.isForegroundSet(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setForeground(Color c) {
+        super.setForeground(c); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Color getForeground() {
+        return super.getForeground(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void show(boolean b) {
+        super.show(b); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void enableInputMethods(boolean enable) {
+        super.enableInputMethods(enable); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isDoubleBuffered() {
+        return super.isDoubleBuffered(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void disable() {
+        super.disable(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void enable(boolean b) {
+        super.enable(b); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void enable() {
+        super.enable(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setEnabled(boolean b) {
+        super.setEnabled(b); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return super.isEnabled(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Point getMousePosition() throws HeadlessException {
+        return super.getMousePosition(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isVisible() {
+        return super.isVisible(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isDisplayable() {
+        return super.isDisplayable(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isValid() {
+        return super.isValid(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public GraphicsConfiguration getGraphicsConfiguration() {
+        return super.getGraphicsConfiguration(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized DropTarget getDropTarget() {
+        return super.getDropTarget(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public synchronized void setDropTarget(DropTarget dt) {
+        super.setDropTarget(dt); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ComponentPeer getPeer() {
+        return super.getPeer(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Container getParent() {
+        return super.getParent(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getName() {
+        return super.getName(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
+    }
 
     /**
      * @param args the command line arguments
